@@ -22,8 +22,7 @@ else if (random <= 3) {
 
 
 const computerSelection = getComputerChoice()
-const playerSelection = "Rock"
-
+const playerSelection = prompt("What is your selection?", "Rock, Paper or Scissors?")
 
 
 function playRound (playerSelection, computerSelection)
@@ -38,25 +37,53 @@ console.log(`Draw! ${playerSelection} ties with ${computerSelection}`)
 return `Draw! ${playerSelection} ties with ${computerSelection}`
  }
 
-else if (playerSelection == playerSelection.match(/rock/ig)
-     && computerSelection == computerSelection.match(/paper/ig)) {
+else if (playerSelection == playerSelection.match(/^rock$/ig)
+     && computerSelection == computerSelection.match(/^paper$/ig)) {
     console.log(`You Lose! ${computerSelection} beats ${playerSelection}`)
+    return `You Lose! ${computerSelection} beats ${playerSelection}`
 }  
 
-else if (playerSelection == playerSelection.match(/paper/ig)
-     && computerSelection == computerSelection.match(/scissors/ig)) {
+else if (playerSelection == playerSelection.match(/^paper$/ig)
+     && computerSelection == computerSelection.match(/^scissors$/ig)) {
     console.log(`You Lose! ${computerSelection} beats ${playerSelection}`)
+    return `You Lose! ${computerSelection} beats ${playerSelection}`
 } 
 
-else if (playerSelection == playerSelection.match(/scissors/ig)
-     && computerSelection == computerSelection.match(/rock/ig)) {
+else if (playerSelection == playerSelection.match(/^scissors$/ig)
+     && computerSelection == computerSelection.match(/^rock$/ig)) {
     console.log(`You Lose! ${computerSelection} beats ${playerSelection}`)
+    return `You Lose! ${computerSelection} beats ${playerSelection}`
 } 
 
-else {
+else if (playerSelection == playerSelection.match(/^rock$/ig)
+&& computerSelection == computerSelection.match(/^scissors$/ig)) {
     console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
+    return  `You Win! ${playerSelection} beats ${computerSelection}`
 }
+else if (playerSelection == playerSelection.match(/^paper$/ig)
+&& computerSelection == computerSelection.match(/^rock$/ig)) {
+    console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
+    return  `You Win! ${playerSelection} beats ${computerSelection}`
+}
+else if (playerSelection == playerSelection.match(/^scissors$/ig)
+&& computerSelection == computerSelection.match(/^paper$/ig)) {
+    console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
+    return  `You Win! ${playerSelection} beats ${computerSelection}`
+}
+
+else {console.log("please enter a valid selection")
+return "please enter a valid selection"}
+
+
 
 }
 
-playRound(playerSelection, computerSelection)
+
+
+
+
+function game() {
+    playRound(playerSelection, computerSelection)
+}
+
+game()
