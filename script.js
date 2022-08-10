@@ -21,8 +21,8 @@ else if (random <= 3) {
 }
 
 
-const computerSelection = getComputerChoice()
-const playerSelection = prompt("What is your selection?", "Rock, Paper or Scissors?")
+let computerSelection = getComputerChoice()
+let playerSelection = prompt("What is your selection?", "Rock, Paper or Scissors?")
 let playerwincount = 0
 let compwincount = 0
 
@@ -96,12 +96,24 @@ return "please enter a valid selection"}
 }
 
 
-
+let gamecount = 0
 
 function game() {
-
+while (gamecount < 4){
     playRound(playerSelection, computerSelection)
+    playerSelection = prompt("What is your selection?", "Rock, Paper or Scissors?")
+    computerSelection = getComputerChoice()
     console.log(playerwincount, compwincount)
+    gamecount++}
 }
 
 game()
+
+function winner (playerwincount, compwincount) {
+    console.log(playerwincount == compwincount ? "Draw no Winner!" : playerwincount < compwincount ? "You Lose! Computer Wins" : "You win! Computer Loses!")
+return playerwincount == compwincount ? "Draw no Winner!" : playerwincount < compwincount ? "You Lose! Computer Wins" : "You win! Computer Loses!"
+
+
+}
+
+winner(playerwincount, compwincount)
